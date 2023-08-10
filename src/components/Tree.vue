@@ -1,62 +1,25 @@
 <template>
   <ul>
-    <li v-for="branch in tree" :key="branch.id">
-      <TreeBranch :branch="branch" />
+    <li v-for="(branch, index) in tree" :key="branch.id">
+      <TreeBranch :branch="branch" :index="index" />
     </li>
   </ul>
 </template>
 
 <script setup lang="ts">
-  import { onMounted, provide } from 'vue'
+  import { provide } from 'vue'
   import TreeBranch from './TreeBranch.vue'
 
   let props = defineProps({
     treeId: {
       type: String,
       required: true
+    },
+    tree: {
+      type: Array,
+      required: true
     }
   })
-
-  let tree = [
-    {
-      id: 1,
-      title: 'title 1',
-      children: [
-        {
-          id: 2,
-          title: 'title 2',
-        },
-        {
-          id: 3,
-          title: 'title 3',
-        }
-      ]
-    },
-    {
-      id: 4,
-      title: 'title 4',
-      children: [
-        {
-          id: 5,
-          title: 'title 5',
-          children: [
-            {
-              id: 7,
-              title: 'title 7',
-            },
-            {
-              id: 8,
-              title: 'title 8',
-            }
-          ]
-        },
-        {
-          id: 6,
-          title: 'title 6',
-        }
-      ]
-    }
-  ]
 
   provide('tree-id', props.treeId)
 </script>

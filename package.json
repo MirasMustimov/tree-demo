@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@vueuse/core": "^10.3.0",
+    "axios": "^1.4.0",
+    "flat-to-nested": "^1.1.1",
     "vue": "^3.3.4"
   },
   "devDependencies": {
