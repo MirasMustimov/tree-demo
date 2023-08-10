@@ -1,5 +1,5 @@
 <template>
-  <li class="odd:bg-slate-200">
+  <li class="odd:bg-stone-100">
     <p class="pr-4">
       <button
         v-if="nestedBranches.length"
@@ -67,6 +67,6 @@
   })
 
   let paddingLeft = computed(() => {
-    return `${props.level * 6}px`
+    return `${props.level * 15}px`
   })
 </script>

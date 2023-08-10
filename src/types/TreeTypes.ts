@@ -1,6 +1,6 @@
 interface TreeBranchNested {
-  id: number,
-  parent_id: number,
+  id: number | string,
+  parent_id: number | string,
   title?: string,
   children?: TreeBranchNested[]
 }
