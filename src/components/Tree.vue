@@ -1,7 +1,7 @@
 <template>
   <ul>
     <li v-for="(branch, index) in tree" :key="branch.id">
-      <TreeBranch :branch="branch" :index="index" />
+      <TreeBranch :branch="branch" :index="index" :show-nested-branches-initial="true" />
     </li>
   </ul>
 </template>

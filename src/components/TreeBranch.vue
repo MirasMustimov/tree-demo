@@ -52,6 +52,10 @@
     index: {
       type: Number,
       required: true
+    },
+    showNestedBranchesInitial: {
+      type: Boolean,
+      default: false
     }
   })
 
@@ -60,7 +64,7 @@
   // maybe use more specific rather than tree
   let showNestedBranches = useStorage(
     `tree-${treeId}:branch-${props.branch.id}:show-nested`,
-    false,
+    props.showNestedBranchesInitial,
     sessionStorage
   )
 
