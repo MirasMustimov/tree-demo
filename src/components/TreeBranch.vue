@@ -57,7 +57,7 @@
   let treeId = inject('tree-id')
 
   let showNestedBranches = useStorage(
-    `tree-${treeId}:branch-${props.branch.id}:show-nested`,
+    `my-app:tree-${treeId}:branch-${props.branch.id}:show-nested`,
     props.showNestedBranchesInitial,
     sessionStorage
   )
