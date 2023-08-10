@@ -1,10 +1,9 @@
 <template>
   <ul class="min-w-[250px]">
     <TreeBranch
-      v-for="(branch, index) in tree"
+      v-for="branch in tree"
       :key="branch.id"
       :branch="branch"
-      :index="index"
       :level="0"
       :show-nested-branches-initial="true"
     />

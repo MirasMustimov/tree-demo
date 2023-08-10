@@ -1,9 +1,14 @@
 <template>
   <div class="min-h-screen flex">
     <div>
-      <Tree tree-id="tree-7" :tree="tree" :key="`tree-${treeKey}`" class="mb-10" />
+      <Tree
+        tree-id="tree-7"
+        :tree="tree"
+        :key="`tree-${treeKey}`"
+        class="mb-10"
+      />
 
-      <button type="button" @click="treeKey++">
+      <button type="button" class="px-2 border rounded-lg" @click="treeKey++">
         rerender tree
       </button>
     </div>
@@ -23,7 +28,6 @@ let tree = ref([])
 let loadingTree = ref(false)
 
 onMounted(() => {
-  // todo: should fetch on created
   fetchTree()
 })
 
