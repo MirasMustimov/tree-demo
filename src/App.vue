@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen flex">
     <div>
-      <Tree tree-id="tree-5" :tree="tree" :key="`tree-${treeKey}`" class="mb-10" />
+      <Tree tree-id="tree-7" :tree="tree" :key="`tree-${treeKey}`" class="mb-10" />
 
       <button type="button" @click="treeKey++">
         rerender tree

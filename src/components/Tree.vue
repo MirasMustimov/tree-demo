@@ -1,8 +1,13 @@
 <template>
-  <ul>
-    <li v-for="(branch, index) in tree" :key="branch.id">
-      <TreeBranch :branch="branch" :index="index" :show-nested-branches-initial="true" />
-    </li>
+  <ul class="min-w-[250px]">
+    <TreeBranch
+      v-for="(branch, index) in tree"
+      :key="branch.id"
+      :branch="branch"
+      :index="index"
+      :level="0"
+      :show-nested-branches-initial="true"
+    />
   </ul>
 </template>
 

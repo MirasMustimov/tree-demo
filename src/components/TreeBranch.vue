@@ -1,12 +1,13 @@
 <template>
-  <div class="pl-3 px-1">
+  <li>
     <!-- is this valid html h6>button ? -->
     <h6>
       <!-- do not make this into button when it should not be clickable -->
       <button
         type="button"
-        class="flex items-center"
-        :class="[ index % 2 === 0 ? 'bg-stone-300' : 'bg-stone-100' ]"
+        class="flex w-full items-center"
+        :style="{ 'padding-left': `${level * 6}px` }"
+        :class="[ index % 2 === 0 ? 'bg-slate-200' : '', 'pr-4' ]"
         @click="showNestedBranches = !showNestedBranches"
       >
         <span v-if="nestedBranches.length">
@@ -28,13 +29,17 @@
         <span>{{ branch.title }}</span>
       </button>
     </h6>
+  </li>
 
-    <ul v-if="nestedBranches.length && showNestedBranches">
-      <li v-for="(nestedBranch, nestedIndex) in nestedBranches" :key="nestedBranch.id">
-        <TreeBranch :branch="nestedBranch" :index="index + nestedIndex + 1" />
-      </li>
-    </ul>
-  </div>
+  <template v-if="nestedBranches.length && showNestedBranches">
+    <TreeBranch
+      v-for="(nestedBranch, nestedIndex) in nestedBranches"
+      :key="nestedBranch.id"
+      :branch="nestedBranch"
+      :index="index + nestedIndex + 1"
+      :level="level + 1"
+    />
+  </template>
 </template>
 
 <script setup lang="ts">
@@ -56,6 +61,10 @@
     showNestedBranchesInitial: {
       type: Boolean,
       default: false
+    },
+    level: {
+      type: Number,
+      required: true
     }
   })
 
