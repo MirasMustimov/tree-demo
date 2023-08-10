@@ -42,22 +42,16 @@
 <script setup lang="ts">
   import { computed, inject } from 'vue'
   import { useStorage } from '@vueuse/core'
+  import type { TreeBranchNested } from '../types/TreeTypes.ts'
 
   import TreeBranch from './TreeBranch.vue'
 
-  let props = defineProps({
-    branch: {
-      type: Object,
-      required: true
-    },
-    showNestedBranchesInitial: {
-      type: Boolean,
-      default: false
-    },
-    level: {
-      type: Number,
-      required: true
-    }
+  let props = withDefaults(defineProps<{
+    branch: TreeBranchNested,
+    showNestedBranchesInitial?: boolean,
+    level: number
+  }>(), {
+    showNestedBranchesInitial: false
   })
 
   let treeId = inject('tree-id')

@@ -12,18 +12,14 @@
 
 <script setup lang="ts">
   import { provide } from 'vue'
+  import type { TreeBranchNested } from '../types/TreeTypes.ts'
+
   import TreeBranch from './TreeBranch.vue'
 
-  let props = defineProps({
-    treeId: {
-      type: String,
-      required: true
-    },
-    tree: {
-      type: Array,
-      required: true
-    }
-  })
+  let props = defineProps<{
+    treeId: string,
+    tree: TreeBranchNested[]
+  }>()
 
   provide('tree-id', props.treeId)
 </script>
