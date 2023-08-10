@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-  import { computed } from 'vue'
+  import { computed, inject } from 'vue'
   import { useStorage } from '@vueuse/core'
 
   import TreeBranch from './TreeBranch.vue'
@@ -29,8 +29,10 @@
     }
   })
 
+  let treeId = inject('tree-id')
+
   let showNestedBranches = useStorage(
-    `tree-view:branch-${props.branch.id}:show-nested`,
+    `tree-view-${treeId}:branch-${props.branch.id}:show-nested`,
     false,
     sessionStorage
   )

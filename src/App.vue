@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen flex justify-center items-center">
     <div>
-      <Tree :key="`tree-${treeKey}`" />
+      <Tree tree-id="tree-1" :key="`tree-${treeKey}`" />
 
       <button type="button" @click="treeKey++">
         rerender tree

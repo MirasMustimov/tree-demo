@@ -7,9 +7,15 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, computed, onMounted } from 'vue'
-
+  import { onMounted, provide } from 'vue'
   import TreeBranch from './TreeBranch.vue'
+
+  let props = defineProps({
+    treeId: {
+      type: String,
+      required: true
+    }
+  })
 
   let tree = [
     {
@@ -52,7 +58,5 @@
     }
   ]
 
-  onMounted(() => {
-    console.log('rerendered')
-  })
+  provide('tree-id', props.treeId)
 </script>
